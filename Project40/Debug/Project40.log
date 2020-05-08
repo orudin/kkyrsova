@@ -1,0 +1,9 @@
+﻿  Source.cpp
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(188,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(209,32): warning C4309: static_cast: усечение константного значения
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(210,32): warning C4309: static_cast: усечение константного значения
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(218,32): warning C4309: static_cast: усечение константного значения
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(219,32): warning C4309: static_cast: усечение константного значения
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(223,32): warning C4309: static_cast: усечение константного значения
+C:\Users\orudi\source\repos\Project40\Project40\Source.cpp(224,32): warning C4309: static_cast: усечение константного значения
+  Project40.vcxproj -> C:\Users\orudi\source\repos\Project40\Debug\Project40.exe
