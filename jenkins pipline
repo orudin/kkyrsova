@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    
+    //triggers { pollSCM('* * * * *') }
+    stages {
+        stage("Checkout git") {
+            steps {
+                git branch: 'main', url: 'https://github.com/orudin/kyrsova-project.git'
+                
+            }
+        }
+        stage("docker login") {
+            steps {
+                echo " docker login "
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'pass', usernameVariable: 'user')]){
+                    
+                    sh "docker login --username=${user} --password=${pass}"
+                }
+            }
+        }
+        stage("docker build") {
+            steps {
+                echo "docker build started "
+                dir('/var/lib/jenkins/workspace/pipline-docker/Shop'){
+                sh 'docker build -f Dockerfile -t orudion/testhttp:latest .'
+            }
+        }
+    }
+        stage("docker push") {
+            steps {
+                echo "pushing image"
+                sh '''
+                docker push orudion/testhttp:latest
+                '''
+            }
+        }
+        
+        stage("docker run") {
+            steps {
+                echo "starting server "
+                sh '''
+                docker run -d -p 80:80 orudion/testhttp:latest
+                '''
+            }
+        }
+    }
+}
